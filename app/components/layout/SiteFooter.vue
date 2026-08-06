@@ -1,65 +1,74 @@
 <template>
-  <footer class="mt-8 h-[416px] rounded-t-[24px] bg-white">
-    <div class="mx-auto flex h-full max-w-7xl flex-col justify-between px-5 pt-12 pb-7 sm:px-8">
-      <div class="grid gap-8 md:grid-cols-3">
+  <footer class="mt-8 h-[416px] overflow-hidden rounded-t-[24px] bg-white">
+    <div class="mx-auto flex flex-row max-w-7xl flex-col justify-between px-5 pt-12 pb-7 sm:px-8">
+      <p class=" text-sm text-slate-500 mt-32 h-fit">
+          هفت روز هفته از ۸ صبح تا ۱۲ شب پاسخگو هستیم 
+        </p>
+      <div class="grid gap-[180px] md:grid-cols-3">
         <div>
           <h2 class="mb-4 text-base font-bold text-slate-800">دسترسی سریع</h2>
           <ul class="space-y-3 text-sm leading-7 text-slate-500">
-            <li class="text-rose-500">خانه</li>
+            <li>درباره ما</li>
             <li>بلاگ</li>
             <li>تماس با ما</li>
-            <li>درباره‌ما</li>
+            <li>خدمات پس از فروش</li>
           </ul>
         </div>
 
         <div>
           <h2 class="mb-4 text-base font-bold text-slate-800">راهنمای سایت</h2>
           <ul class="space-y-3 text-sm leading-7 text-slate-500">
-            <li>راهنمای خرید</li>
-            <li>راهنمای پرداخت</li>
-            <li>سیاست مرجوعیت</li>
+            <li>قوانین و مقررات</li>
+            <li>دریافت مشاوره</li>
+            <li>انتقادات و پیشنهادات</li>
           </ul>
         </div>
 
         <div>
           <h2 class="mb-4 text-base font-bold text-slate-800">شبکه‌های اجتماعی</h2>
-          <ul class="space-y-3 text-sm leading-7 text-slate-500">
+          <ul class="flex flex-col space-y-3 text-sm leading-7 text-slate-500">
             <li class="inline-flex items-center gap-2">
-              <span class="h-4 w-4 rounded-full border border-slate-300" />
+              <img src="/icons/telegram.svg" alt="تلگرام">
               تلگرام
             </li>
             <li class="inline-flex items-center gap-2">
-              <span class="h-4 w-4 rounded-full border border-slate-300" />
+              <img src="/icons/instagram.svg" alt="اینستاگرام">
               اینستاگرام
             </li>
             <li class="inline-flex items-center gap-2">
-              <span class="h-4 w-4 rounded-full border border-slate-300" />
+              <img src="/icons/linkedin.svg" alt="لینکدین" >
               لینکدین
             </li>
           </ul>
         </div>
       </div>
-
-      <div class="space-y-4 border-t border-slate-100 pt-5 text-center">
-        <p class="text-xs text-slate-500">
-          کلیه حقوق این سایت متعلق به شرکت تولید درب و پنجره آلومینیومی است.
+    </div>
+    <div class="flex h-[152px] w-full rounded-t-[16px] bg-[#F8F9FC] px-5 py-6 sm:px-8">
+      <div class="absolute left-20 flex flex-row gap-8">
+          <img src="/imgs/frame-1.png" alt="image"/>
+          <img src="/imgs/frame-2.png" alt="image"/>
+      </div>
+      <div class="w-[390px] m-auto flex flex-col justify-center items-center">
+        <p class="text-center text-sm text-slate-500">
+          تمامی حقوق مادی و معنوی این وبسایت متعلق به می‌باشد و هر گونه کپی برداری پیگرد قانونی دارد.
         </p>
-        <div class="flex items-center justify-center gap-3">
-          <span class="h-7 w-7 rounded-full bg-rose-100" />
-          <span class="h-7 w-7 rounded-full bg-rose-100" />
-          <span class="h-7 w-7 rounded-full bg-rose-100" />
-          <span class="h-7 w-7 rounded-full bg-rose-100" />
-          <span class="h-7 w-7 rounded-full bg-rose-100" />
-        </div>
-        <div class="flex items-center justify-between">
-          <div class="flex items-center gap-3">
-            <span class="h-14 w-14 rounded-lg bg-amber-50" />
-            <span class="h-14 w-14 rounded-lg bg-amber-50" />
-          </div>
-          <p class="text-[11px] text-slate-400">
-            طراحی و توسعه توسط تیم MAZ
-          </p>
-        </div>
+        <ul class="flex flex-row gap-4 mt-4">
+          <li class="w-[24px] h-[24px] rounded-full">
+            <img src="/icons/instagram-red.svg" alt="image"/>
+          </li>
+          <li class="w-[24px] h-[24px] rounded-full">
+            <img src="/icons/telegram-red.svg" alt="image"/>
+          </li>
+          <li class="w-[24px] h-[24px] rounded-full">
+            <img src="/icons/linkedin-red.svg" alt="image"/>
+          </li>
+          <li class="w-[24px] h-[24px] rounded-full">
+            <img src="/icons/twitter-red.svg" alt="image"/>
+          </li>
+          <li class="w-[24px] h-[24px] rounded-full">
+            <img src="/icons/youtube-red.svg" alt="image"/>
+          </li>
+        </ul>
       </div>
     </div>
   </footer>

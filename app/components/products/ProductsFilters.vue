@@ -15,10 +15,10 @@ const isSortOpen = ref(true)
 const isCategoriesOpen = ref(true)
 
 const sortOptions: Array<{ key: ProductsSortKey, label: string }> = [
-  { key: 'count-asc', label: 'تعداد نظر: کم به زیاد' },
-  { key: 'count-desc', label: 'تعداد نظر: زیاد به کم' },
-  { key: 'rating-asc', label: 'امتیاز: کم به زیاد' },
-  { key: 'rating-desc', label: 'امتیاز: زیاد به کم' },
+  { key: 'count-asc', label: 'تعداد: کم به زیاد' },
+  { key: 'count-desc', label: 'تعداد: زیاد به کم' },
+  { key: 'rating-asc', label: 'رتبه: کم به زیاد' },
+  { key: 'rating-desc', label: 'رتبه: زیاد به کم' },
 ]
 </script>
 

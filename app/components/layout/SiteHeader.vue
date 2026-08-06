@@ -61,8 +61,8 @@ const navItems = [
 </script>
 
 <template>
-  <header class="mb-4 h-[120px] w-full rounded-b-[28px] bg-white shadow-[0_3px_16px_rgba(15,23,42,0.06)]">
-    <div class="relative mx-auto flex h-full w-full max-w-7xl items-center justify-center px-4">
+  <header class=" mb-4 h-[120px] w-full rounded-b-[28px] bg-white shadow-[0_3px_16px_rgba(15,23,42,0.06)]">
+    <div class="relative mx-auto flex h-full w-full max-w-[1030px] items-center justify-center px-4">
       <button
         type="button"
         class="absolute left-4 inline-flex h-[40px] w-[107px] items-center justify-center gap-2 rounded-[16px] bg-[#E20054] px-4 py-3 text-center text-[14px] font-bold leading-[16px] text-white [font-family:'YekanBakhCustom']"
