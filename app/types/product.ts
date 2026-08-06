@@ -1,3 +1,5 @@
+export type ProductsSortKey = 'rating-asc' | 'rating-desc' | 'count-asc' | 'count-desc'
+
 export interface ProductRating {
   rate: number
   count: number
