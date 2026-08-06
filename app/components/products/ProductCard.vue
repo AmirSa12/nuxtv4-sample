@@ -4,35 +4,30 @@ import type { ProductCardPreview } from '~/types/product'
 defineProps<{
   product: ProductCardPreview
 }>()
-
-const formatPrice = (price: number) => {
-  return new Intl.NumberFormat('fa-IR').format(Math.round(price * 100000))
-}
 </script>
 
 <template>
-  <article class="rounded-2xl bg-white p-3 shadow-sm">
+  <article class="flex h-[286px] w-[263.333px] flex-col rounded-[24px] border border-slate-200 bg-white p-3 shadow-sm">
     <img
       :src="product.image"
       :alt="product.title"
-      class="h-40 w-full rounded-xl object-cover"
+      class="h-[160px] w-full rounded-[18px] object-contain object-center"
       loading="lazy"
     >
 
-    <h3 class="mt-3 min-h-10 text-sm font-semibold text-slate-700">
-      {{ product.title }}
-    </h3>
+    <div class="mt-3 h-[72px] overflow-hidden">
+      <h3 dir="ltr" class="text-left font-bold text-[14px] leading-[24px] tracking-[0] text-slate-800">
+        {{ product.title }}
+      </h3>
+    </div>
 
-    <p class="mt-2 text-xs text-slate-500">
-      {{ product.category }}
-    </p>
+    <div class="mt-auto h-[40px] w-[239px] self-center rounded-[16px] border-[1.5px] border-slate-200 px-4 py-3">
+      <a href="#" class="flex h-full w-full items-center justify-center gap-2 text-center text-[14px] font-bold leading-[16px] tracking-[0] text-rose-500">
 
-    <div class="mt-4 flex items-center justify-between">
-      <p class="text-sm font-bold text-pink-600">
-        {{ formatPrice(product.price) }} تومان
-      </p>
-      <a href="#" class="text-sm font-semibold text-pink-600">
         مشاهده جزئیات
+        <svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M15 18l-6-6 6-6" />
+        </svg>
       </a>
     </div>
   </article>

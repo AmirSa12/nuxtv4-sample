@@ -45,18 +45,6 @@ const sortedProducts = computed<ProductCardPreview[]>(() => {
 
 <template>
   <main class="mx-auto max-w-7xl px-4 py-6">
-    <section class="mb-5 rounded-2xl bg-white px-4 py-3 shadow-sm">
-      <div class="flex flex-wrap items-center justify-between gap-2">
-        <h1 class="text-base font-bold text-slate-800">
-          لیست محصولات
-        </h1>
-        <p class="text-xs text-slate-500">
-          <span v-if="error">خطا در دریافت محصولات</span>
-          <span v-else>{{ productsForList.length }} محصول</span>
-        </p>
-      </div>
-    </section>
-
     <div class="grid gap-5 lg:grid-cols-[280px_minmax(0,1fr)]">
       <ProductsFilters v-model:sort-by="selectedSort" :categories="categoryOptions" />
 

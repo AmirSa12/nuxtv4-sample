@@ -16,7 +16,7 @@ defineProps<{
 
     <div
       v-else
-      class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3"
+      class="grid min-h-[1836px] w-[822px] grid-cols-1 content-start justify-items-center gap-6 sm:grid-cols-2 xl:grid-cols-3"
     >
       <ProductCard
         v-for="product in products"
