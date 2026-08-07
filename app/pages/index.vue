@@ -94,8 +94,8 @@ const goToNextPage = async () => {
 </script>
 
 <template>
-  <main class="mx-auto max-w-7xl px-4 py-6">
-    <div class="grid gap-5 lg:grid-cols-[280px_minmax(0,1fr)]">
+  <main class="mx-auto w-full max-w-7xl px-4 py-4 sm:py-6">
+    <div class="grid gap-4 sm:gap-5 lg:grid-cols-[280px_minmax(0,1fr)]">
       <ProductsFilters
         :sort-by="sortBy"
         :has-explicit-sort="isSortExplicit"
@@ -135,23 +135,23 @@ const goToNextPage = async () => {
 
         <nav
           v-if="!pending && !error && totalPages > 1"
-          class="mt-5 flex w-[822px] items-center justify-between rounded-2xl bg-white px-4 py-3 shadow-sm"
+          class="mt-5 flex w-full max-w-[822px] items-center justify-between gap-3 rounded-2xl bg-white px-3 py-3 shadow-sm sm:px-4"
           aria-label="pagination"
         >
           <button
             type="button"
-            class="rounded-lg border border-slate-200 px-3 py-1 text-sm text-slate-700 disabled:cursor-not-allowed disabled:opacity-50"
+            class="min-h-10 rounded-lg border border-slate-200 px-3 py-2 text-sm text-slate-700 disabled:cursor-not-allowed disabled:opacity-50"
             :disabled="safePage <= 1"
             @click="goToPreviousPage"
           >
             قبلی
           </button>
-          <p class="text-sm text-slate-600">
-            صفحه {{ toPersianNumber(safePage) }} از {{ toPersianNumber(totalPages) }} 
+          <p class="text-center text-sm text-slate-600">
+            صفحه {{ toPersianNumber(safePage) }} از {{ toPersianNumber(totalPages) }}
           </p>
           <button
             type="button"
-            class="rounded-lg border border-slate-200 px-3 py-1 text-sm text-slate-700 disabled:cursor-not-allowed disabled:opacity-50"
+            class="min-h-10 rounded-lg border border-slate-200 px-3 py-2 text-sm text-slate-700 disabled:cursor-not-allowed disabled:opacity-50"
             :disabled="safePage >= totalPages"
             @click="goToNextPage"
           >

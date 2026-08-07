@@ -20,23 +20,23 @@ const iconForChip = (kind: ProductFilterChip['kind']) => {
 </script>
 
 <template>
-  <section class="mb-4 flex min-h-16 w-[822px] items-center justify-between rounded-3xl bg-white p-3 shadow-sm">
-    <p class="pr-3 text-sm text-[#253343]">
-      فیلترهای اعمال شده 
+  <section class="mb-4 flex min-h-16 w-full max-w-[822px] flex-col gap-3 rounded-3xl bg-white p-3 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+    <p class="pr-1 text-sm text-[#253343] sm:pr-3">
+      فیلترهای اعمال شده
     </p>
 
-    <div class="flex flex-wrap items-center justify-end gap-2">
+    <div class="flex flex-wrap items-center gap-2 sm:justify-end">
       <button
         v-for="chip in props.chips"
         :key="chip.id"
         type="button"
-        class="flex h-8 items-center gap-2 rounded-[16px] bg-[#FCE5EE] px-3 text-xs font-semibold text-[#253343]"
+        class="flex h-8 max-w-full items-center gap-2 rounded-[16px] bg-[#FCE5EE] px-3 text-xs font-semibold text-[#253343]"
         :aria-label="`حذف فیلتر ${chip.label}`"
         @click="emit('removeChip', chip)"
       >
-        <img :src="iconForChip(chip.kind)" alt="" class="h-4 w-4">
+        <img :src="iconForChip(chip.kind)" alt="" class="h-4 w-4 shrink-0">
         <span class="max-w-36 truncate">{{ chip.label }}</span>
-        <img src="/icons/close.svg" alt="" class="h-4 w-4">
+        <img src="/icons/close.svg" alt="" class="h-4 w-4 shrink-0">
       </button>
 
       <button

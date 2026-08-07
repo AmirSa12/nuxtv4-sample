@@ -14,12 +14,12 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <section>
+  <section class="w-full max-w-[822px]">
     <div v-if="pending" class="rounded-2xl bg-white p-6 text-sm text-slate-500 shadow-sm">
       در حال دریافت محصولات...
     </div>
 
-    <div v-else-if="!products.length" class="rounded-2xl bg-white p-8 text-center shadow-sm w-[822px]">
+    <div v-else-if="!products.length" class="rounded-2xl bg-white p-8 text-center shadow-sm">
       <p class="text-base font-semibold text-slate-700">
         نتیجه‌ای پیدا نشد
       </p>
@@ -38,7 +38,7 @@ const emit = defineEmits<{
 
     <div
       v-else
-      class="grid min-h-[1836px] w-[822px] grid-cols-1 content-start justify-items-center gap-6 sm:grid-cols-2 xl:grid-cols-3"
+      class="grid grid-cols-1 content-start gap-4 sm:grid-cols-2 sm:gap-5 xl:grid-cols-3 xl:gap-6"
     >
       <ProductCard
         v-for="product in products"

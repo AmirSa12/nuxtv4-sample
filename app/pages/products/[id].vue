@@ -23,14 +23,14 @@ useHead(() => ({
 </script>
 
 <template>
-  <main class="mx-auto max-w-7xl px-4 py-6">
+  <main class="mx-auto w-full max-w-7xl px-4 py-4 sm:py-6">
     <div v-if="pending" class="rounded-2xl bg-white p-6 text-sm text-slate-500 shadow-sm">
       در حال دریافت اطلاعات محصول...
     </div>
 
     <div
       v-else-if="!hasValidProductId || error || !product"
-      class="rounded-2xl bg-white p-8 text-center shadow-sm"
+      class="rounded-2xl bg-white p-6 text-center shadow-sm sm:p-8"
     >
       <p class="text-base font-semibold text-rose-600">
         محصول موردنظر پیدا نشد

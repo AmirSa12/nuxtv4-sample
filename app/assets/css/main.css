@@ -17,7 +17,12 @@
   font-display: swap;
 }
 
+html {
+  overflow-x: clip;
+}
+
 body {
   font-family: "IRANYekanCustom", "YekanBakhCustom", "Vazirmatn", "IRANSansX", "Segoe UI", Tahoma, sans-serif;
   font-weight: 400;
+  overflow-x: clip;
 }

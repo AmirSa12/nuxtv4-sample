@@ -70,8 +70,8 @@ const toggleCategory = (categoryValue: string, checked: boolean) => {
 </script>
 
 <template>
-  <aside class="space-y-4">
-    <section class="h-[160px] w-[266px] rounded-[24px] bg-white p-4 shadow-sm">
+  <aside class="w-full space-y-4 lg:max-w-[266px]">
+    <section class="w-full rounded-[24px] bg-white p-4 shadow-sm">
       <h2 id="products-search-title" class="mb-2 text-sm font-bold text-slate-700">فیلتر و جستجو</h2>
 
       <label class="sr-only" for="products-search-input">جستجو در عنوان محصولات</label>
@@ -94,7 +94,7 @@ const toggleCategory = (categoryValue: string, checked: boolean) => {
 
           <button
             type="button"
-            class="shrink-0 text-lg leading-none text-slate-400 hover:text-slate-500"
+            class="inline-flex h-8 w-8 shrink-0 items-center justify-center text-lg leading-none text-slate-400 hover:text-slate-500"
             aria-label="پاک کردن جستجو"
             @click="clearSearch"
           >
@@ -113,17 +113,16 @@ const toggleCategory = (categoryValue: string, checked: boolean) => {
     </section>
 
     <section
-      class="w-[266px] overflow-hidden rounded-[24px] bg-white px-4 pt-4 pb-6 shadow-sm transition-all"
-      :class="isSortOpen ? 'h-[200px]' : 'h-[64px]'"
+      class="w-full overflow-hidden rounded-[24px] bg-white px-4 pt-4 pb-4 shadow-sm transition-all"
     >
       <button
         type="button"
-        class="flex w-full text-sm font-bold text-slate-700"
+        class="flex min-h-8 w-full text-sm font-bold text-slate-700"
         :aria-expanded="isSortOpen"
         aria-controls="sort-options"
         @click="isSortOpen = !isSortOpen"
       >
-        <span class="inline-flex items-center gap-2 w-full justify-between">
+        <span class="inline-flex w-full items-center justify-between gap-2">
           مرتب‌سازی
           <img src="/icons/arrow.svg" alt="" :class="isSortOpen ? 'rotate-180' : 'rotate-0'">
         </span>
@@ -133,7 +132,7 @@ const toggleCategory = (categoryValue: string, checked: boolean) => {
         <label
           v-for="option in sortOptions"
           :key="option.key"
-          class="flex cursor-pointer items-center gap-3"
+          class="flex min-h-10 cursor-pointer items-center gap-3"
         >
           <input
             type="radio"
@@ -149,17 +148,16 @@ const toggleCategory = (categoryValue: string, checked: boolean) => {
     </section>
 
     <section
-      class="w-[266px] overflow-hidden rounded-[24px] bg-white px-4 pt-4 pb-6 shadow-sm transition-all"
-      :class="isCategoriesOpen ? 'h-[180px]' : 'h-[64px]'"
+      class="w-full overflow-hidden rounded-[24px] bg-white px-4 pt-4 pb-4 shadow-sm transition-all"
     >
       <button
         type="button"
-        class="flex w-full items-center justify-between text-sm font-bold text-slate-700"
+        class="flex min-h-8 w-full items-center justify-between text-sm font-bold text-slate-700"
         :aria-expanded="isCategoriesOpen"
         aria-controls="category-options"
         @click="isCategoriesOpen = !isCategoriesOpen"
       >
-        <span class="inline-flex items-center gap-2 w-full justify-between">
+        <span class="inline-flex w-full items-center justify-between gap-2">
           دسته‌بندی
           <img src="/icons/arrow.svg" alt="arrow-down" :class="isCategoriesOpen ? 'rotate-180' : 'rotate-0'">
         </span>
@@ -169,15 +167,15 @@ const toggleCategory = (categoryValue: string, checked: boolean) => {
         <li
           v-for="category in categories"
           :key="category.value"
-          class="flex items-center justify-start gap-2"
+          class="flex min-h-10 items-center justify-start gap-2"
         >
-        <input
-          type="checkbox"
-          class="h-4 w-4 rounded-[4px] border border-[#E20054] accent-[#E20054]"
-          :checked="props.selectedCategories.includes(category.value)"
-          :aria-label="`فیلتر دسته‌بندی ${category.label}`"
-          @change="toggleCategory(category.value, ($event.target as HTMLInputElement).checked)"
-        >
+          <input
+            type="checkbox"
+            class="h-4 w-4 rounded-[4px] border border-[#E20054] accent-[#E20054]"
+            :checked="props.selectedCategories.includes(category.value)"
+            :aria-label="`فیلتر دسته‌بندی ${category.label}`"
+            @change="toggleCategory(category.value, ($event.target as HTMLInputElement).checked)"
+          >
           <span>{{ category.label }}</span>
         </li>
       </ul>

@@ -36,52 +36,68 @@ const detailRows: ProductDetailRow[] = [
   { id: 'count', label: 'تعداد', value: '۱۰' },
   { id: 'rate', label: 'رتبه', value: '۴' },
 ]
+
+watch(isViewerOpen, (open) => {
+  if (!import.meta.client)
+    return
+  document.body.style.overflow = open ? 'hidden' : ''
+})
+
+onBeforeUnmount(() => {
+  if (!import.meta.client)
+    return
+  document.body.style.overflow = ''
+})
 </script>
 
 <template>
-  <div class="pb-[74px]">
-    <div class="mx-auto w-full max-w-[1112px] px-4">
-      <nav class="flex items-center gap-2 text-sm text-slate-500" aria-label="breadcrumb">
-        <NuxtLink to="/" class="inline-flex items-center">
+  <div class="pb-10 sm:pb-[74px]">
+    <div class="mx-auto w-full max-w-[1112px]">
+      <nav class="flex min-w-0 items-center gap-2 overflow-hidden text-sm text-slate-500" aria-label="breadcrumb">
+        <NuxtLink to="/" class="inline-flex shrink-0 items-center">
           <img src="/icons/home.svg" alt="خانه" class="h-[18px] w-[18px] shrink-0">
         </NuxtLink>
         <img src="/icons/arrow.svg" alt="" class="h-4 w-4 shrink-0 rotate-90">
-        <NuxtLink to="/" class="hover:text-slate-700">
+        <NuxtLink to="/" class="shrink-0 hover:text-slate-700">
           لیست محصولات
         </NuxtLink>
         <img src="/icons/arrow.svg" alt="" class="h-4 w-4 shrink-0 rotate-90">
-        <p class="truncate text-slate-700">
+        <p class="min-w-0 truncate text-slate-700">
           {{ props.title }}
         </p>
       </nav>
 
-      <div class="mt-6">
+      <div class="mt-4 sm:mt-6">
         <section class="w-full rounded-[24px] bg-white">
-          <div class="flex flex-col items-end gap-6 p-6">
-            <p class="text-lg font-bold text-slate-700">
+          <div class="flex flex-col items-stretch gap-4 p-4 sm:items-end sm:gap-6 sm:p-6">
+            <p class="text-base font-bold text-slate-700 sm:text-lg">
               {{ props.title }}
             </p>
             <div class="relative w-full">
               <button
                 type="button"
-                class="group absolute top-3 right-3 z-10 inline-flex h-[40px] w-[40px] items-center justify-center rounded-[13px] bg-[#00000080] opacity-[0.8] transition duration-200 hover:-translate-y-0.5 hover:bg-[#000000a0] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+                class="group absolute top-3 right-3 z-10 inline-flex h-10 w-10 items-center justify-center rounded-[13px] bg-[#00000080] opacity-[0.8] transition duration-200 hover:-translate-y-0.5 hover:bg-[#000000a0] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
                 aria-label="نمایش تصویر در حالت بزرگ"
                 @click="openViewer"
               >
                 <img
                   src="/icons/zoom-in.svg"
                   alt="نمایش تصویر در حالت بزرگ"
-                  class="h-[20px] w-[20px] transform-gpu transition duration-200 group-hover:animate-[icon-shake_0.45s_ease-in-out] group-hover:[filter:brightness(0)_saturate(100%)_invert(22%)_sepia(93%)_saturate(5517%)_hue-rotate(326deg)_brightness(89%)_contrast(113%)]"
+                  class="h-5 w-5 transform-gpu transition duration-200 group-hover:animate-[icon-shake_0.45s_ease-in-out] group-hover:[filter:brightness(0)_saturate(100%)_invert(22%)_sepia(93%)_saturate(5517%)_hue-rotate(326deg)_brightness(89%)_contrast(113%)]"
                 >
               </button>
-              <img :src="props.imageSrc" :alt="props.title" class="h-[320px] w-full rounded-[16px] object-contain">
+              <img
+                :src="props.imageSrc"
+                :alt="props.title"
+                class="h-[220px] w-full rounded-[16px] object-contain sm:h-[280px] lg:h-[320px]"
+              >
             </div>
           </div>
         </section>
 
-        <section class="mt-6 w-full rounded-[24px] bg-white">
-          <div class="flex flex-col items-start gap-6 p-6">
-            <p class="text-lg font-bold text-slate-700">
+        <section class="mt-4 w-full rounded-[24px] bg-white sm:mt-6">
+          <div class="flex flex-col items-start gap-4 p-4 sm:gap-6 sm:p-6">
+            <p class="text-base font-bold text-slate-700 sm:text-lg">
               توضیحات محصول
             </p>
 
@@ -89,15 +105,15 @@ const detailRows: ProductDetailRow[] = [
               <div
                 v-for="row in detailRows"
                 :key="row.id"
-                class="flex gap-3"
+                class="flex flex-col gap-2 sm:flex-row sm:gap-3"
               >
-                <div class="flex min-h-[48px] w-[172px] items-center rounded-r-[16px] rounded-l-[4px] bg-[#F5F7FA] pr-4">
+                <div class="flex min-h-12 w-full shrink-0 items-center rounded-[16px] bg-[#F5F7FA] px-4 sm:w-[172px] sm:rounded-r-[16px] sm:rounded-l-[4px] sm:pr-4 sm:pl-0">
                   <p class="text-sm font-bold text-[#57728E]">
                     {{ row.label }}
                   </p>
                 </div>
 
-                <div class="flex min-h-[48px] flex-1 items-center rounded-l-[16px] rounded-r-[4px] bg-[#F5F7FA] pl-4 pr-4">
+                <div class="flex min-h-12 min-w-0 flex-1 items-center rounded-[16px] bg-[#F5F7FA] px-4 sm:rounded-l-[16px] sm:rounded-r-[4px]">
                   <p v-if="row.value" class="text-sm font-bold text-[#30445B]">
                     {{ row.value }}
                   </p>
@@ -129,13 +145,13 @@ const detailRows: ProductDetailRow[] = [
     <div class="relative w-full max-w-5xl">
       <button
         type="button"
-        class="absolute top-3 right-3 z-10 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-slate-700 shadow-md transition hover:bg-white"
+        class="absolute top-3 right-3 z-10 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-slate-700 shadow-md transition hover:bg-white"
         aria-label="بستن نمای تصویر"
         @click="closeViewer"
       >
         ×
       </button>
-      <img :src="props.imageSrc" :alt="props.title" class="max-h-[85vh] w-full rounded-2xl bg-white object-contain">
+      <img :src="props.imageSrc" :alt="props.title" class="max-h-[85dvh] w-full rounded-2xl bg-white object-contain">
     </div>
   </div>
 </template>

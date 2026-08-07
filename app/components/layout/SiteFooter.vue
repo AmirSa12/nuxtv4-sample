@@ -1,10 +1,10 @@
 <template>
-  <footer class="mt-8 h-[416px] overflow-hidden rounded-t-[24px] bg-white">
-    <div class="mx-auto flex flex-row max-w-7xl flex-col justify-between px-5 pt-12 pb-7 sm:px-8">
-      <p class=" text-sm text-slate-500 mt-32 h-fit">
-          هفت روز هفته از ۸ صبح تا ۱۲ شب پاسخگو هستیم 
-        </p>
-      <div class="grid gap-[180px] md:grid-cols-3">
+  <footer class="mt-8 overflow-hidden rounded-t-[24px] bg-white">
+    <div class="mx-auto flex w-full max-w-7xl flex-col justify-between gap-10 px-4 pt-10 pb-8 sm:px-8 lg:min-h-[264px] lg:gap-0 lg:pt-12 lg:pb-7">
+      <p class="order-last text-sm text-slate-500 lg:order-first lg:mt-32">
+        هفت روز هفته از ۸ صبح تا ۱۲ شب پاسخگو هستیم
+      </p>
+      <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:gap-[180px]">
         <div>
           <h2 class="mb-4 text-base font-bold text-slate-800">دسترسی سریع</h2>
           <ul class="space-y-3 text-sm leading-7 text-slate-500">
@@ -24,7 +24,7 @@
           </ul>
         </div>
 
-        <div>
+        <div class="sm:col-span-2 md:col-span-1">
           <h2 class="mb-4 text-base font-bold text-slate-800">شبکه‌های اجتماعی</h2>
           <ul class="flex flex-col space-y-3 text-sm leading-7 text-slate-500">
             <li class="inline-flex items-center gap-2">
@@ -36,37 +36,39 @@
               اینستاگرام
             </li>
             <li class="inline-flex items-center gap-2">
-              <img src="/icons/linkedin.svg" alt="لینکدین" >
+              <img src="/icons/linkedin.svg" alt="لینکدین">
               لینکدین
             </li>
           </ul>
         </div>
       </div>
     </div>
-    <div class="flex h-[152px] w-full rounded-t-[16px] bg-[#F8F9FC] px-5 py-6 sm:px-8">
-      <div class="absolute left-20 flex flex-row gap-8">
-          <img src="/imgs/frame-1.png" alt="image"/>
-          <img src="/imgs/frame-2.png" alt="image"/>
+
+    <div class="relative flex min-h-[152px] w-full flex-col items-center justify-center gap-6 rounded-t-[16px] bg-[#F8F9FC] px-4 py-6 sm:px-8 lg:flex-row lg:justify-center">
+      <div class="flex flex-row flex-wrap items-center justify-center gap-4 lg:absolute lg:left-8 lg:top-1/2 lg:-translate-y-1/2 xl:left-20 xl:gap-8">
+        <img src="/imgs/frame-1.png" alt="image" class="h-auto max-h-16 w-auto max-w-[120px] object-contain sm:max-h-20 sm:max-w-none">
+        <img src="/imgs/frame-2.png" alt="image" class="h-auto max-h-16 w-auto max-w-[120px] object-contain sm:max-h-20 sm:max-w-none">
       </div>
-      <div class="w-[390px] m-auto flex flex-col justify-center items-center">
+
+      <div class="mx-auto flex w-full max-w-[390px] flex-col items-center justify-center">
         <p class="text-center text-sm text-slate-500">
           تمامی حقوق مادی و معنوی این وبسایت متعلق به می‌باشد و هر گونه کپی برداری پیگرد قانونی دارد.
         </p>
-        <ul class="flex flex-row gap-4 mt-4">
-          <li class="w-[24px] h-[24px] rounded-full">
-            <img src="/icons/instagram-red.svg" alt="image"/>
+        <ul class="mt-4 flex flex-row gap-4">
+          <li class="h-6 w-6 rounded-full">
+            <img src="/icons/instagram-red.svg" alt="image">
           </li>
-          <li class="w-[24px] h-[24px] rounded-full">
-            <img src="/icons/telegram-red.svg" alt="image"/>
+          <li class="h-6 w-6 rounded-full">
+            <img src="/icons/telegram-red.svg" alt="image">
           </li>
-          <li class="w-[24px] h-[24px] rounded-full">
-            <img src="/icons/linkedin-red.svg" alt="image"/>
+          <li class="h-6 w-6 rounded-full">
+            <img src="/icons/linkedin-red.svg" alt="image">
           </li>
-          <li class="w-[24px] h-[24px] rounded-full">
-            <img src="/icons/twitter-red.svg" alt="image"/>
+          <li class="h-6 w-6 rounded-full">
+            <img src="/icons/twitter-red.svg" alt="image">
           </li>
-          <li class="w-[24px] h-[24px] rounded-full">
-            <img src="/icons/youtube-red.svg" alt="image"/>
+          <li class="h-6 w-6 rounded-full">
+            <img src="/icons/youtube-red.svg" alt="image">
           </li>
         </ul>
       </div>
