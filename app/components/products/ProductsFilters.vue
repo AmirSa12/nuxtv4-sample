@@ -77,11 +77,13 @@ const toggleCategory = (categoryValue: string, checked: boolean) => {
       <label class="sr-only" for="products-search-input">جستجو در عنوان محصولات</label>
       <div class="h-10 w-full rounded-[16px] border-[1.5px] border-slate-300 bg-slate-100 px-4 py-3 transition-colors focus-within:border-rose-600 focus-within:bg-white">
         <div dir="rtl" class="flex h-full items-center gap-2">
-          <img
-            src="/icons/other/magnifier.svg"
-            alt="جستجو"
-            class="h-4 w-4 shrink-0"
-          >
+          <div class="border-l-[2px] border-[#D1DBE8] pl-2">
+            <img
+              src="/icons/other/magnifier.svg"
+              alt="جستجو"
+              class="h-4 w-4 shrink-0"
+            >
+          </div>
 
           <input
             id="products-search-input"
@@ -113,7 +115,7 @@ const toggleCategory = (categoryValue: string, checked: boolean) => {
     </section>
 
     <section
-      class="w-full overflow-hidden rounded-[24px] bg-white px-4 pt-4 pb-4 shadow-sm transition-all"
+      class="w-full overflow-hidden rounded-[24px] bg-white px-4 pt-4 pb-4 shadow-sm"
     >
       <button
         type="button"
@@ -124,31 +126,43 @@ const toggleCategory = (categoryValue: string, checked: boolean) => {
       >
         <span class="inline-flex w-full items-center justify-between gap-2">
           مرتب‌سازی
-          <img src="/icons/other/arrow.svg" alt="" :class="isSortOpen ? 'rotate-180' : 'rotate-0'">
+          <img
+            src="/icons/other/arrow.svg"
+            alt=""
+            class="transition-transform duration-300 ease-out"
+            :class="isSortOpen ? 'rotate-180' : 'rotate-0'"
+          >
         </span>
       </button>
 
-      <div v-if="isSortOpen" id="sort-options" class="mt-5 space-y-2 text-sm text-slate-500">
-        <label
-          v-for="option in sortOptions"
-          :key="option.key"
-          class="flex min-h-10 cursor-pointer items-center gap-3"
-        >
-          <input
-            type="radio"
-            name="products-sort"
-            class="h-4 w-4 appearance-none rounded-full border border-[#E20054] bg-white checked:border-[#E20054] checked:bg-[#E20054] checked:shadow-[inset_0_0_0_3px_white]"
-            :checked="props.sortBy === option.key && (props.hasExplicitSort || option.key !== 'count-asc')"
-            @change="emit('update:sortBy', option.key)"
-          >
+      <div
+        class="grid transition-[grid-template-rows] duration-300 ease-out"
+        :class="isSortOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'"
+      >
+        <div class="overflow-hidden">
+          <div id="sort-options" class="mt-5 space-y-2 text-sm text-slate-500">
+            <label
+              v-for="option in sortOptions"
+              :key="option.key"
+              class="flex min-h-10 cursor-pointer items-center gap-3"
+            >
+              <input
+                type="radio"
+                name="products-sort"
+                class="h-4 w-4 appearance-none rounded-full border border-[#E20054] bg-white checked:border-[#E20054] checked:bg-[#E20054] checked:shadow-[inset_0_0_0_3px_white]"
+                :checked="props.sortBy === option.key && (props.hasExplicitSort || option.key !== 'count-asc')"
+                @change="emit('update:sortBy', option.key)"
+              >
 
-          <span>{{ option.label }}</span>
-        </label>
+              <span>{{ option.label }}</span>
+            </label>
+          </div>
+        </div>
       </div>
     </section>
 
     <section
-      class="w-full overflow-hidden rounded-[24px] bg-white px-4 pt-4 pb-4 shadow-sm transition-all"
+      class="w-full overflow-hidden rounded-[24px] bg-white px-4 pt-4 pb-4 shadow-sm"
     >
       <button
         type="button"
@@ -159,26 +173,38 @@ const toggleCategory = (categoryValue: string, checked: boolean) => {
       >
         <span class="inline-flex w-full items-center justify-between gap-2">
           دسته‌بندی
-          <img src="/icons/other/arrow.svg" alt="arrow-down" :class="isCategoriesOpen ? 'rotate-180' : 'rotate-0'">
+          <img
+            src="/icons/other/arrow.svg"
+            alt="arrow-down"
+            class="transition-transform duration-300 ease-out"
+            :class="isCategoriesOpen ? 'rotate-180' : 'rotate-0'"
+          >
         </span>
       </button>
 
-      <ul v-if="isCategoriesOpen" id="category-options" class="mt-5 space-y-2 text-sm text-slate-500">
-        <li
-          v-for="category in categories"
-          :key="category.value"
-          class="flex min-h-10 items-center justify-start gap-2"
-        >
-          <input
-            type="checkbox"
-            class="h-4 w-4 rounded-[4px] border border-[#E20054] accent-[#E20054]"
-            :checked="props.selectedCategories.includes(category.value)"
-            :aria-label="`فیلتر دسته‌بندی ${category.label}`"
-            @change="toggleCategory(category.value, ($event.target as HTMLInputElement).checked)"
-          >
-          <span>{{ category.label }}</span>
-        </li>
-      </ul>
+      <div
+        class="grid transition-[grid-template-rows] duration-300 ease-out"
+        :class="isCategoriesOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'"
+      >
+        <div class="overflow-hidden">
+          <ul id="category-options" class="mt-5 space-y-2 text-sm text-slate-500">
+            <li
+              v-for="category in categories"
+              :key="category.value"
+              class="flex min-h-10 items-center justify-start gap-2"
+            >
+              <input
+                type="checkbox"
+                class="h-4 w-4 rounded-[4px] border border-[#E20054] accent-[#E20054]"
+                :checked="props.selectedCategories.includes(category.value)"
+                :aria-label="`فیلتر دسته‌بندی ${category.label}`"
+                @change="toggleCategory(category.value, ($event.target as HTMLInputElement).checked)"
+              >
+              <span>{{ category.label }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
     </section>
   </aside>
 </template>
