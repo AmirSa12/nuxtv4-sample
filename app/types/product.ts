@@ -1,5 +1,10 @@
 export type ProductsSortKey = 'rating-asc' | 'rating-desc' | 'count-asc' | 'count-desc'
 
+export interface ProductCategoryOption {
+  value: string
+  label: string
+}
+
 export interface ProductRating {
   rate: number
   count: number
@@ -23,4 +28,10 @@ export interface ProductCardPreview {
   image: string
   ratingRate: number
   ratingCount: number
+}
+
+export interface ProductFilterChip {
+  id: string
+  label: string
+  kind: 'search' | 'sort' | 'category'
 }

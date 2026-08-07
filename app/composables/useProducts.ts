@@ -11,10 +11,11 @@ const mapToCardPreview = (product: Product): ProductCardPreview => ({
 })
 
 export const useProducts = () => {
-  const { data, pending, error, refresh } = useFetch<Product[]>('/api/products', {
-    key: 'products-list',
-    default: () => [],
-  })
+  const { data, pending, error, refresh } = useAsyncData<Product[]>(
+    'products-list',
+    () => $fetch('/api/products'),
+    { default: () => [] },
+  )
 
   const productsForList = computed<ProductCardPreview[]>(() => {
     return (data.value ?? []).map(mapToCardPreview)
@@ -28,3 +29,5 @@ export const useProducts = () => {
     refresh,
   }
 }
+
+export const toPersianNumber = (value: number) => value.toLocaleString('fa-IR')
