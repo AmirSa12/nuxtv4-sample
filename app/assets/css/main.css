@@ -1,1 +1,23 @@
 @import "tailwindcss";
+
+/* Use currently available local fonts to keep rendering stable. */
+@font-face {
+  font-family: "IRANYekanCustom";
+  src: url("../fonts/IRANYekan.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "YekanBakhCustom";
+  src: url("../fonts/YekanBakh-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: "IRANYekanCustom", "YekanBakhCustom", "Vazirmatn", "IRANSansX", "Segoe UI", Tahoma, sans-serif;
+  font-weight: 400;
+}
