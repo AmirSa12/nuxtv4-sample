@@ -29,6 +29,7 @@ export const useProductsQueryState = () => {
 
     return 'count-asc'
   })
+  const isSortExplicit = computed(() => VALID_SORTS.includes(normalizeQueryValue(route.query.sort) as ProductsSortKey))
 
   const searchQuery = computed(() => normalizeQueryValue(route.query.q).trim())
 
@@ -66,7 +67,11 @@ export const useProductsQueryState = () => {
   }
 
   const setSortBy = async (value: ProductsSortKey) => {
-    await replaceQuery({ sort: value === 'count-asc' ? undefined : value }, { resetPage: true })
+    await replaceQuery({ sort: value }, { resetPage: true })
+  }
+
+  const clearSort = async () => {
+    await replaceQuery({ sort: undefined }, { resetPage: true })
   }
 
   const setSelectedCategories = async (values: string[]) => {
@@ -93,6 +98,8 @@ export const useProductsQueryState = () => {
 
   return {
     clearFilters,
+    clearSort,
+    isSortExplicit,
     page,
     searchQuery,
     selectedCategories,

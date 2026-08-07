@@ -10,6 +10,8 @@ import ProductsToolbar from '~/components/products/ProductsToolbar.vue'
 const { productsForList, pending, error } = useProducts()
 const {
   clearFilters,
+  clearSort,
+  isSortExplicit,
   page,
   searchQuery,
   selectedCategories,
@@ -58,6 +60,7 @@ const {
   searchQuery,
   selectedCategories,
   sortBy,
+  isSortExplicit,
   page,
   categoryLabelsByValue,
 )
@@ -69,7 +72,7 @@ const removeChip = async (chip: ProductFilterChip) => {
   }
 
   if (chip.kind === 'sort') {
-    await setSortBy('count-asc')
+    await clearSort()
     return
   }
 
@@ -95,6 +98,7 @@ const goToNextPage = async () => {
     <div class="grid gap-5 lg:grid-cols-[280px_minmax(0,1fr)]">
       <ProductsFilters
         :sort-by="sortBy"
+        :has-explicit-sort="isSortExplicit"
         :search-query="searchQuery"
         :selected-categories="selectedCategories"
         :categories="categoryOptions"

@@ -37,6 +37,7 @@ export const useProductsCatalog = (
   searchQuery: Ref<string>,
   selectedCategories: Ref<string[]>,
   sortBy: Ref<ProductsSortKey>,
+  isSortExplicit: Ref<boolean>,
   page: Ref<number>,
   categoryLabelMap: Ref<Record<string, string>>,
 ) => {
@@ -76,7 +77,7 @@ export const useProductsCatalog = (
       })
     }
 
-    if (sortBy.value !== 'count-asc') {
+    if (isSortExplicit.value) {
       chips.push({
         id: 'sort',
         kind: 'sort',

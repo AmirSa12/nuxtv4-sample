@@ -3,6 +3,7 @@ import type { ProductCategoryOption, ProductsSortKey } from '~/types/product'
 
 const props = defineProps<{
   sortBy: ProductsSortKey
+  hasExplicitSort: boolean
   categories: ProductCategoryOption[]
   selectedCategories: string[]
   searchQuery: string
@@ -132,9 +133,16 @@ const toggleCategory = (categoryValue: string, checked: boolean) => {
         <label
           v-for="option in sortOptions"
           :key="option.key"
-          class="flex items-center justify-start gap-2"
+          class="flex cursor-pointer items-center gap-3"
         >
-        <input type="radio" name="products-sort" :checked="props.sortBy === option.key" @change="emit('update:sortBy', option.key)">
+          <input
+            type="radio"
+            name="products-sort"
+            class="h-4 w-4 appearance-none rounded-full border border-[#E20054] bg-white checked:border-[#E20054] checked:bg-[#E20054] checked:shadow-[inset_0_0_0_3px_white]"
+            :checked="props.sortBy === option.key && (props.hasExplicitSort || option.key !== 'count-asc')"
+            @change="emit('update:sortBy', option.key)"
+          >
+
           <span>{{ option.label }}</span>
         </label>
       </div>
@@ -165,6 +173,7 @@ const toggleCategory = (categoryValue: string, checked: boolean) => {
         >
         <input
           type="checkbox"
+          class="h-4 w-4 rounded-[4px] border border-[#E20054] accent-[#E20054]"
           :checked="props.selectedCategories.includes(category.value)"
           :aria-label="`فیلتر دسته‌بندی ${category.label}`"
           @change="toggleCategory(category.value, ($event.target as HTMLInputElement).checked)"
