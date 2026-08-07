@@ -28,7 +28,7 @@ const emit = defineEmits<{
       <button
         v-if="hasActiveFilters"
         type="button"
-        class="mt-4 rounded-xl bg-rose-600 px-4 py-2 text-sm font-semibold text-white"
+        class="mt-4 rounded-xl bg-rose-600 px-4 py-2 text-sm font-semibold cursor-pointer text-white hover:bg-rose-700"
         @click="emit('clearFilters')"
       >
         پاک کردن فیلترها
