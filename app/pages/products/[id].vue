@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import type { Product } from '~/types/product'
-import ProductDetailsContent from '~/components/product-details/ProductDetailsContent.vue'
+import type { Product } from '#shared/types/product'
 
 const route = useRoute()
 
 const productId = computed(() => Number.parseInt(route.params.id as string, 10))
 const hasValidProductId = computed(() => Number.isInteger(productId.value) && productId.value > 0)
 
-const { data: product, pending, error } = useAsyncData<Product | null>(
+const { data: product, pending, error } = await useAsyncData<Product | null>(
   () => `product-detail-${route.params.id}`,
   async () => {
     if (!hasValidProductId.value)
@@ -15,6 +14,7 @@ const { data: product, pending, error } = useAsyncData<Product | null>(
 
     return await $fetch<Product>(`/api/products/${productId.value}`)
   },
+  { default: () => null },
 )
 
 useHead(() => ({

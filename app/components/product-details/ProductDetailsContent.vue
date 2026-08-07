@@ -55,13 +55,13 @@ onBeforeUnmount(() => {
     <div class="mx-auto w-full max-w-[1112px]">
       <nav class="flex min-w-0 items-center gap-2 overflow-hidden text-sm text-slate-500" aria-label="breadcrumb">
         <NuxtLink to="/" class="inline-flex shrink-0 items-center">
-          <img src="/icons/home.svg" alt="خانه" class="h-[18px] w-[18px] shrink-0">
+          <img src="/icons/other/home.svg" alt="خانه" class="h-[18px] w-[18px] shrink-0">
         </NuxtLink>
-        <img src="/icons/arrow.svg" alt="" class="h-4 w-4 shrink-0 rotate-90">
+        <img src="/icons/other/arrow.svg" alt="" class="h-4 w-4 shrink-0 rotate-90">
         <NuxtLink to="/" class="shrink-0 hover:text-slate-700">
           لیست محصولات
         </NuxtLink>
-        <img src="/icons/arrow.svg" alt="" class="h-4 w-4 shrink-0 rotate-90">
+        <img src="/icons/other/arrow.svg" alt="" class="h-4 w-4 shrink-0 rotate-90">
         <p class="min-w-0 truncate text-slate-700">
           {{ props.title }}
         </p>
@@ -81,7 +81,7 @@ onBeforeUnmount(() => {
                 @click="openViewer"
               >
                 <img
-                  src="/icons/zoom-in.svg"
+                  src="/icons/other/zoom-in.svg"
                   alt="نمایش تصویر در حالت بزرگ"
                   class="h-5 w-5 transform-gpu transition duration-200 group-hover:animate-[icon-shake_0.45s_ease-in-out] group-hover:[filter:brightness(0)_saturate(100%)_invert(22%)_sepia(93%)_saturate(5517%)_hue-rotate(326deg)_brightness(89%)_contrast(113%)]"
                 >

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ProductCategoryOption, ProductsSortKey } from '~/types/product'
+import type { ProductCategoryOption, ProductsSortKey } from '#shared/types/product'
 
 const props = defineProps<{
   sortBy: ProductsSortKey
@@ -78,7 +78,7 @@ const toggleCategory = (categoryValue: string, checked: boolean) => {
       <div class="h-10 w-full rounded-[16px] border-[1.5px] border-slate-300 bg-slate-100 px-4 py-3 transition-colors focus-within:border-rose-600 focus-within:bg-white">
         <div dir="rtl" class="flex h-full items-center gap-2">
           <img
-            src="/icons/magnifier.svg"
+            src="/icons/other/magnifier.svg"
             alt="جستجو"
             class="h-4 w-4 shrink-0"
           >
@@ -124,7 +124,7 @@ const toggleCategory = (categoryValue: string, checked: boolean) => {
       >
         <span class="inline-flex w-full items-center justify-between gap-2">
           مرتب‌سازی
-          <img src="/icons/arrow.svg" alt="" :class="isSortOpen ? 'rotate-180' : 'rotate-0'">
+          <img src="/icons/other/arrow.svg" alt="" :class="isSortOpen ? 'rotate-180' : 'rotate-0'">
         </span>
       </button>
 
@@ -159,7 +159,7 @@ const toggleCategory = (categoryValue: string, checked: boolean) => {
       >
         <span class="inline-flex w-full items-center justify-between gap-2">
           دسته‌بندی
-          <img src="/icons/arrow.svg" alt="arrow-down" :class="isCategoriesOpen ? 'rotate-180' : 'rotate-0'">
+          <img src="/icons/other/arrow.svg" alt="arrow-down" :class="isCategoriesOpen ? 'rotate-180' : 'rotate-0'">
         </span>
       </button>
 

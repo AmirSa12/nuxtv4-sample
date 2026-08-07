@@ -1,13 +1,7 @@
 <script setup lang="ts">
-import type { ProductFilterChip, ProductCategoryOption } from '~/types/product'
-import { useProducts } from '~/composables/useProducts'
-import { useProductsCatalog } from '~/composables/useProductsCatalog'
-import { useProductsQueryState } from '~/composables/useProductsQueryState'
-import ProductsFilters from '~/components/products/ProductsFilters.vue'
-import ProductsGrid from '~/components/products/ProductsGrid.vue'
-import ProductsToolbar from '~/components/products/ProductsToolbar.vue'
+import type { ProductFilterChip, ProductCategoryOption } from '#shared/types/product'
 
-const { productsForList, pending, error } = useProducts()
+const { productsForList, pending, error } = await useProducts()
 const {
   clearFilters,
   clearSort,
@@ -34,9 +28,9 @@ const categoryLabelMap: Record<string, string> = {
 }
 
 const categoryOptions = computed<ProductCategoryOption[]>(() => {
-  const categories = productsForList.value.map((product) => product.category)
+  const categories = productsForList.value.map(product => product.category)
   const uniqueCategories = [...new Set(categories)]
-  return uniqueCategories.map((category) => ({
+  return uniqueCategories.map(category => ({
     label: categoryLabelMap[category] ?? category,
     value: category,
   }))

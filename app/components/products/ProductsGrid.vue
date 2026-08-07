@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import type { ProductCardPreview } from '~/types/product'
-import ProductCard from '~/components/products/ProductCard.vue'
+import type { ProductCardPreview } from '#shared/types/product'
 
 defineProps<{
   products: ProductCardPreview[]
