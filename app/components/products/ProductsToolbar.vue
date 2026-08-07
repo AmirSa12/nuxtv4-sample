@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ProductFilterChip } from '~/types/product'
+import type { ProductFilterChip } from '#shared/types/product'
 
 const props = defineProps<{
   chips: ProductFilterChip[]
@@ -13,9 +13,9 @@ const emit = defineEmits<{
 
 const iconForChip = (kind: ProductFilterChip['kind']) => {
   if (kind === 'search')
-    return '/icons/magnifier.svg'
+    return '/icons/other/magnifier.svg'
 
-  return '/icons/sort-down.svg'
+  return '/icons/other/sort-down.svg'
 }
 </script>
 
@@ -36,7 +36,7 @@ const iconForChip = (kind: ProductFilterChip['kind']) => {
       >
         <img :src="iconForChip(chip.kind)" alt="" class="h-4 w-4 shrink-0">
         <span class="max-w-36 truncate">{{ chip.label }}</span>
-        <img src="/icons/close.svg" alt="" class="h-4 w-4 shrink-0">
+        <img src="/icons/other/close.svg" alt="" class="h-4 w-4 shrink-0">
       </button>
 
       <button

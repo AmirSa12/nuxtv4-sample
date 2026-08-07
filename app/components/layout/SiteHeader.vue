@@ -1,63 +1,28 @@
 <script setup lang="ts">
-import { defineComponent, h } from 'vue'
-
-const Category2Icon = defineComponent({
-  name: 'Category2Icon',
-  setup() {
-    return () => h('img', { src: '/icons/category-2.svg', alt: '', class: 'h-4 w-4 shrink-0' })
-  },
-})
-
-const BookIcon = defineComponent({
-  name: 'BookIcon',
-  setup() {
-    return () => h('img', { src: '/icons/book.svg', alt: '', class: 'h-4 w-4 shrink-0' })
-  },
-})
-
-const MessageQuestionIcon = defineComponent({
-  name: 'MessageQuestionIcon',
-  setup() {
-    return () => h('img', { src: '/icons/message-question.svg', alt: '', class: 'h-4 w-4 shrink-0' })
-  },
-})
-
-const PhoneCallIcon = defineComponent({
-  name: 'PhoneCallIcon',
-  setup() {
-    return () => h('img', { src: '/icons/phone-call.svg', alt: '', class: 'h-4 w-4 shrink-0' })
-  },
-})
-
-const LeftPhoneCallIcon = defineComponent({
-  name: 'LeftPhoneCallIcon',
-  setup() {
-    return () => h('img', { src: '/icons/left-phone-call.svg', alt: '', class: 'h-4 w-4 shrink-0' })
-  },
-})
+const githubUrl = 'https://github.com/AmirSa12'
 
 const navItems = [
   {
     label: 'لیست محصولات',
     active: true,
-    icon: Category2Icon,
+    icon: '/icons/other/category-2.svg',
   },
   {
     label: 'درخواست مشاوره',
     active: false,
-    icon: BookIcon,
+    icon: '/icons/other/book.svg',
   },
   {
     label: 'سوالات متداول',
     active: false,
-    icon: MessageQuestionIcon,
+    icon: '/icons/other/message-question.svg',
   },
   {
     label: 'تماس با ما',
     active: false,
-    icon: PhoneCallIcon,
+    icon: '/icons/other/phone-call.svg',
   },
-] as Array<{ label: string, active: boolean, icon: ReturnType<typeof defineComponent> }>
+] as const
 
 const isMobileMenuOpen = ref(false)
 
@@ -112,23 +77,41 @@ onBeforeUnmount(() => {
         </svg>
       </button>
 
-      <button
-        type="button"
-        class="inline-flex h-10 min-w-[107px] items-center justify-center gap-2 rounded-[16px] bg-[#E20054] px-4 py-3 text-center text-[14px] font-bold leading-[16px] text-white [font-family:'YekanBakhCustom'] lg:absolute lg:left-4"
+      <a
+        :href="githubUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex h-10 min-w-[107px] items-center justify-center gap-2 rounded-[16px] bg-[#E20054] px-4 py-3 text-center text-[14px] font-bold leading-[16px] text-white transition-colors hover:bg-[#c4004a] [font-family:'YekanBakhCustom'] lg:absolute lg:left-4"
       >
         تماس
-        <component :is="LeftPhoneCallIcon" />
-      </button>
+        <span
+          class="header-icon h-4 w-4 shrink-0 bg-white"
+          :style="{
+            WebkitMaskImage: 'url(/icons/other/left-phone-call.svg)',
+            maskImage: 'url(/icons/other/left-phone-call.svg)',
+          }"
+          aria-hidden="true"
+        />
+      </a>
 
       <nav class="hidden items-center gap-6 text-[13px] text-slate-700 sm:gap-7 lg:flex">
         <a
           v-for="item in navItems"
           :key="item.label"
-          href="#"
-          class="relative inline-flex items-center gap-1.5 transition-colors"
-          :class="item.active ? 'text-[#E20054]' : 'text-slate-600 hover:text-slate-800'"
+          :href="githubUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group relative inline-flex items-center gap-1.5 transition-colors"
+          :class="item.active ? 'text-[#E20054]' : 'text-slate-600 hover:text-[#E20054]'"
         >
-          <component :is="item.icon" />
+          <span
+            class="header-icon h-4 w-4 shrink-0 bg-current transition-colors"
+            :style="{
+              WebkitMaskImage: `url(${item.icon})`,
+              maskImage: `url(${item.icon})`,
+            }"
+            aria-hidden="true"
+          />
           <span>{{ item.label }}</span>
           <span
             v-if="item.active"
@@ -153,12 +136,21 @@ onBeforeUnmount(() => {
       <ul class="flex flex-col gap-1 text-sm text-slate-700">
         <li v-for="item in navItems" :key="item.label">
           <a
-            href="#"
-            class="flex min-h-11 items-center gap-2 rounded-xl px-3 py-2.5 transition-colors"
-            :class="item.active ? 'bg-[#FCE5EE] text-[#E20054]' : 'hover:bg-slate-50'"
+            :href="githubUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex min-h-11 items-center gap-2 rounded-xl px-3 py-2.5 transition-colors"
+            :class="item.active ? 'bg-[#FCE5EE] text-[#E20054]' : 'text-slate-600 hover:bg-slate-50 hover:text-[#E20054]'"
             @click="closeMobileMenu"
           >
-            <component :is="item.icon" />
+            <span
+              class="header-icon h-4 w-4 shrink-0 bg-current transition-colors"
+              :style="{
+                WebkitMaskImage: `url(${item.icon})`,
+                maskImage: `url(${item.icon})`,
+              }"
+              aria-hidden="true"
+            />
             <span>{{ item.label }}</span>
           </a>
         </li>
@@ -166,3 +158,16 @@ onBeforeUnmount(() => {
     </nav>
   </header>
 </template>
+
+<style scoped>
+.header-icon {
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-mode: alpha;
+  mask-mode: alpha;
+}
+</style>

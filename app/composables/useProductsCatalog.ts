@@ -1,5 +1,5 @@
 import type { Ref } from 'vue'
-import type { ProductCardPreview, ProductFilterChip, ProductsSortKey } from '~/types/product'
+import type { ProductCardPreview, ProductFilterChip, ProductsSortKey } from '#shared/types/product'
 
 export const PRODUCTS_PER_PAGE = 18
 

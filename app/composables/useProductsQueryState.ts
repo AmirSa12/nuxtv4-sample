@@ -1,5 +1,5 @@
 import type { LocationQuery, LocationQueryValue } from 'vue-router'
-import type { ProductsSortKey } from '~/types/product'
+import type { ProductsSortKey } from '#shared/types/product'
 
 const VALID_SORTS: ProductsSortKey[] = ['count-asc', 'count-desc', 'rating-asc', 'rating-desc']
 

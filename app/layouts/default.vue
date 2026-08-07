@@ -1,8 +1,3 @@
-<script setup lang="ts">
-import SiteFooter from '~/components/layout/SiteFooter.vue'
-import SiteHeader from '~/components/layout/SiteHeader.vue'
-</script>
-
 <template>
   <div class="min-h-dvh overflow-x-clip bg-slate-100 text-slate-800">
     <SiteHeader />
