@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ProductCardPreview, ProductFilterChip, ProductCategoryOption } from '~/types/product'
+import type { ProductFilterChip, ProductCategoryOption } from '~/types/product'
 import { useProducts } from '~/composables/useProducts'
 import { useProductsCatalog } from '~/composables/useProductsCatalog'
 import { useProductsQueryState } from '~/composables/useProductsQueryState'

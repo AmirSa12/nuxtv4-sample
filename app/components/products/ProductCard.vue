@@ -22,13 +22,12 @@ defineProps<{
     </div>
 
     <div class="mt-auto h-[40px] w-[239px] self-center rounded-[16px] border-[1.5px] border-slate-200 px-4 py-3">
-      <a href="#" class="flex h-full w-full items-center justify-center gap-2 text-center text-[14px] font-bold leading-[16px] tracking-[0] text-rose-500">
-
+      <NuxtLink :to="`/products/${product.id}`" class="flex h-full w-full items-center justify-center gap-2 text-center text-[14px] font-bold leading-[16px] tracking-[0] text-rose-500">
         مشاهده جزئیات
         <svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M15 18l-6-6 6-6" />
         </svg>
-      </a>
+      </NuxtLink>
     </div>
   </article>
 </template>
