@@ -1,75 +1,25 @@
-# Nuxt Minimal Starter
+# AmirHossein Sakhravi
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Thanks for the opportunity.
 
-## Setup
+## How to run the project
 
-Make sure to install dependencies:
+I used pnpm, so:
 
-```bash
-# npm
-npm install
-
-# pnpm
+```sh
 pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
 pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
 pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+I ran a Lighthouse test and got a performance score of 98.
+
+**Note:** The insights indicate issues with the images on each screen, which would require responsive images for different screen sizes.
+
+There is also a guide on the product page explaining a decision I made.
+
+The UI was unclear in figma. For example, there was a section on tablet that wasn't present on desktop.
+
+Thanks!
+Best.
+~ AmirHossein Sakhravi
