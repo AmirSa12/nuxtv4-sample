@@ -2,6 +2,11 @@
 
 Thanks for the opportunity.
 
+Live preview:
+
+https://nuxt4-6h2.pages.dev/
+
+
 ## How to run the project
 
 I used pnpm, so:
