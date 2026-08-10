@@ -2,7 +2,7 @@
 
 Thanks for the opportunity.
 
-Live preview:
+## Live preview:
 
 https://nuxt4-6h2.pages.dev/
 
