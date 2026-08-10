@@ -95,7 +95,10 @@ onBeforeUnmount(() => {
           </div>
         </section>
 
-        <section class="mt-4 w-full rounded-[24px] bg-white sm:mt-6">
+        <section
+          data-guide="product-details"
+          class="mt-4 w-full rounded-[24px] bg-white sm:mt-6"
+        >
           <div class="flex flex-col items-start gap-4 p-4 sm:gap-6 sm:p-6">
             <p class="text-base font-bold text-slate-700 sm:text-lg">
               توضیحات محصول
@@ -133,6 +136,8 @@ onBeforeUnmount(() => {
       </div>
     </div>
   </div>
+
+  <ProductGuide />
 
   <div
     v-if="isViewerOpen"
