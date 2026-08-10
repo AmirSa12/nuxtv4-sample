@@ -13,7 +13,7 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <section class="w-full max-w-[822px]">
+  <section class="w-full min-w-0">
     <div v-if="pending" class="rounded-2xl bg-white p-6 text-sm text-slate-500 shadow-sm">
       در حال دریافت محصولات...
     </div>

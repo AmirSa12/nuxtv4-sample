@@ -20,7 +20,7 @@ const iconForChip = (kind: ProductFilterChip['kind']) => {
 </script>
 
 <template>
-  <section class="mb-4 flex min-h-16 w-full max-w-[822px] flex-col gap-3 rounded-3xl bg-white p-3 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+  <section class="mb-4 flex min-h-16 w-full flex-col gap-3 rounded-3xl bg-white p-3 shadow-sm sm:flex-row sm:items-center sm:justify-between">
     <p class="pr-1 text-sm text-[#253343] sm:pr-3">
       فیلترهای اعمال شده
     </p>

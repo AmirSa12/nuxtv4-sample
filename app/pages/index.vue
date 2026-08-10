@@ -101,7 +101,7 @@ const goToNextPage = async () => {
         @update:selected-categories="setSelectedCategories"
       />
 
-      <section>
+      <section class="min-w-0">
         <div
           v-if="error"
           class="mb-4 rounded-2xl bg-white p-6 text-center shadow-sm"
@@ -129,7 +129,7 @@ const goToNextPage = async () => {
 
         <nav
           v-if="!pending && !error && totalPages > 1"
-          class="mt-5 flex w-full max-w-[822px] items-center justify-between gap-3 rounded-2xl bg-white px-3 py-3 shadow-sm sm:px-4"
+          class="mt-5 flex w-full min-w-0 items-center justify-between gap-3 rounded-2xl bg-white px-3 py-3 shadow-sm sm:px-4"
           aria-label="pagination"
         >
           <button
