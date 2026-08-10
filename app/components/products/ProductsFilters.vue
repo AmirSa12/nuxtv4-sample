@@ -18,7 +18,6 @@ const emit = defineEmits<{
 const searchTerm = ref(props.searchQuery)
 const isSortOpen = ref(false)
 const isCategoriesOpen = ref(false)
-let searchDebounceTimer: ReturnType<typeof setTimeout> | undefined
 
 const sortOptions: Array<{ key: ProductsSortKey, label: string }> = [
   { key: 'count-asc', label: 'تعداد: کم به زیاد' },
@@ -34,20 +33,6 @@ watch(
       searchTerm.value = newValue
   },
 )
-
-watch(searchTerm, (value) => {
-  if (searchDebounceTimer)
-    clearTimeout(searchDebounceTimer)
-
-  searchDebounceTimer = setTimeout(() => {
-    emit('update:searchQuery', value.trim())
-  }, 350)
-})
-
-onBeforeUnmount(() => {
-  if (searchDebounceTimer)
-    clearTimeout(searchDebounceTimer)
-})
 
 const clearSearch = () => {
   searchTerm.value = ''
@@ -92,6 +77,7 @@ const toggleCategory = (categoryValue: string, checked: boolean) => {
             class="min-w-0 flex-1 bg-transparent text-right text-sm font-bold leading-4 text-slate-700 outline-none placeholder:text-slate-700"
             autocomplete="off"
             aria-labelledby="products-search-title"
+            @keydown.enter.prevent="submitSearch"
           >
 
           <button
