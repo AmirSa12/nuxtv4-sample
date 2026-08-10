@@ -26,23 +26,27 @@ const iconForChip = (kind: ProductFilterChip['kind']) => {
     </p>
 
     <div class="flex flex-wrap items-center gap-2 sm:justify-end">
-      <button
+      <div
         v-for="chip in props.chips"
         :key="chip.id"
-        type="button"
         class="flex h-8 max-w-full items-center gap-2 rounded-[16px] bg-[#FCE5EE] px-3 text-xs font-semibold text-[#253343]"
-        :aria-label="`حذف فیلتر ${chip.label}`"
-        @click="emit('removeChip', chip)"
       >
         <img :src="iconForChip(chip.kind)" alt="" class="h-4 w-4 shrink-0">
         <span class="max-w-36 truncate">{{ chip.label }}</span>
-        <img src="/icons/other/close.svg" alt="" class="h-4 w-4 shrink-0">
-      </button>
+        <button
+          type="button"
+          class="inline-flex shrink-0 cursor-pointer"
+          :aria-label="`حذف فیلتر ${chip.label}`"
+          @click="emit('removeChip', chip)"
+        >
+          <img src="/icons/other/close.svg" alt="" class="h-4 w-4">
+        </button>
+      </div>
 
       <button
         v-if="props.chips.length"
         type="button"
-        class="h-8 rounded-[16px] border border-slate-200 px-3 text-xs font-semibold text-slate-600"
+        class="h-8 cursor-pointer rounded-[16px] border border-slate-200 px-3 text-xs font-semibold text-slate-600"
         @click="emit('clearAll')"
       >
         حذف همه

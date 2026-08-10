@@ -42,37 +42,25 @@
         <div class="sm:col-span-2 md:col-span-1">
           <h2 class="mb-4 text-base font-bold text-slate-800">شبکه‌های اجتماعی</h2>
           <ul class="flex flex-col space-y-3 text-sm leading-7 text-slate-500">
-            <li>
+            <li
+              v-for="icon in footerSocialLinks"
+              :key="icon.src"
+            >
               <a
                 href="https://github.com/AmirSa12"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 transition-colors hover:text-[#E20054]"
+                class="group inline-flex items-center gap-2 transition-colors hover:text-[#E20054]"
               >
-                <img src="/icons/social/telegram.svg" alt="تلگرام">
-                تلگرام
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://github.com/AmirSa12"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 transition-colors hover:text-[#E20054]"
-              >
-                <img src="/icons/social/instagram.svg" alt="اینستاگرام">
-                اینستاگرام
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://github.com/AmirSa12"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 transition-colors hover:text-[#E20054]"
-              >
-                <img src="/icons/social/linkedin.svg" alt="لینکدین">
-                لینکدین
+                <span
+                  class="social-icon block h-6 w-6 bg-[#6783A0] transition-colors group-hover:bg-[#E20054]"
+                  :style="{
+                    WebkitMaskImage: `url(${icon.src})`,
+                    maskImage: `url(${icon.src})`,
+                  }"
+                  aria-hidden="true"
+                />
+                {{ icon.label }}
               </a>
             </li>
           </ul>
@@ -115,12 +103,18 @@
 </template>
 
 <script setup lang="ts">
+const footerSocialLinks = [
+  { src: '/icons/social/telegram.svg', label: 'تلگرام' },
+  { src: '/icons/social/instagram.svg', label: 'اینستاگرام' },
+  { src: '/icons/social/linkedin.svg', label: 'لینکدین' },
+] as const
+
 const socialIcons = [
-  { src: '/icons/social/instagram-red.svg', label: 'اینستاگرام' },
-  { src: '/icons/social/telegram-red.svg', label: 'تلگرام' },
-  { src: '/icons/social/linkedin-red.svg', label: 'لینکدین' },
-  { src: '/icons/social/twitter-red.svg', label: 'توییتر' },
-  { src: '/icons/social/youtube-red.svg', label: 'یوتیوب' },
+  { src: '/icons/social/instagram.svg', label: 'اینستاگرام' },
+  { src: '/icons/social/telegram.svg', label: 'تلگرام' },
+  { src: '/icons/social/linkedin.svg', label: 'لینکدین' },
+  { src: '/icons/social/twitter.svg', label: 'توییتر' },
+  { src: '/icons/social/youtube.svg', label: 'یوتیوب' },
 ] as const
 </script>
 

@@ -16,8 +16,8 @@ const emit = defineEmits<{
 }>()
 
 const searchTerm = ref(props.searchQuery)
-const isSortOpen = ref(true)
-const isCategoriesOpen = ref(true)
+const isSortOpen = ref(false)
+const isCategoriesOpen = ref(false)
 let searchDebounceTimer: ReturnType<typeof setTimeout> | undefined
 
 const sortOptions: Array<{ key: ProductsSortKey, label: string }> = [
